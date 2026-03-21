@@ -1,0 +1,24 @@
+# Business profile for invoices (JSON file, no DB table)
+sg:
+  accounting:
+    company-profile-file: data/company-profile.json
+
+spring:
+  application:
+    name: sg-accounting-backend
+  datasource:
+    url: jdbc:mysql://localhost:3307/sg_accounting?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Singapore
+    username: sg_accounting
+    password: sg_accounting
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+
+server:
+  port: 8080
